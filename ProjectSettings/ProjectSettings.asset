@@ -928,11 +928,11 @@ PlayerSettings:
   captureStartupLogs: {}
   activeInputHandler: 2
   windowsGamepadBackendHint: 0
-  cloudProjectId: baa4d454-748a-4adf-8ddd-86c47c401b39
+  cloudProjectId: 27ec5446-53da-423a-b1c8-9e1a50959d41
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: We're Overcooked_3.0version
-  organizationId: cse457wi
+  projectName: We're Overcooked 2025-03-05_14-55-08
+  organizationId: cynxmilw
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   hmiLoadingImage: {fileID: 0}

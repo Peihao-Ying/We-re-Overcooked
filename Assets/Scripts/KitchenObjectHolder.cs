@@ -47,12 +47,12 @@ public class KitchenObjectHolder : MonoBehaviour
     {
         if (sourceHolder.GetKitchenObject() == null)
         {
-            Debug.LogWarning("源持有者上不存在食材,转移失败。");
+            Debug.LogWarning("ERROR");
             return;
         }
         if (targetHolder.GetKitchenObject() != null)
         {
-            Debug.LogWarning("目标持有者上存在食材,转移失败。");
+            Debug.LogWarning("ERROR");
             return;
         }
         targetHolder.AddKitchenObject(sourceHolder.GetKitchenObject());

@@ -49,6 +49,7 @@ public class Player : KitchenObjectHolder
 
     private void GameInput_OnOperateAction(object sender, System.EventArgs e)
     {
+        Debug.Log("Player detected Operate action!");
         selectedCounter?.InteractOperate(this);
     }
 
@@ -95,4 +96,6 @@ public class Player : KitchenObjectHolder
             this.selectedCounter = counter;
         }
     }
+
+
 }

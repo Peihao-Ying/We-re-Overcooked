@@ -34,9 +34,9 @@ public class StoveCounter : BaseCounter
     public override void Interact(Player player)
     {
         if (player.IsHaveKitchenObject())
-        {//������ʳ��
+        {
             if (IsHaveKitchenObject() == false )
-            {//��ǰ��̨ Ϊ��
+            {
 
                 if(fryingRecipeList.TryGetFryingRecipe(
                 player.GetKitchenObject().GetKitchenObjectSO(), out FryingRecipe fryingRecipe))
@@ -56,18 +56,18 @@ public class StoveCounter : BaseCounter
                 
             }
             else
-            {//��ǰ��̨ ��Ϊ��
+            {
 
             }
         }
         else
-        {//����ûʳ��
+        {
             if (IsHaveKitchenObject() == false)
-            {//��ǰ��̨ Ϊ��
+            {
 
             }
             else
-            {//��ǰ��̨ ��Ϊ��
+            {
                 TurnToIdle();
                 TransferKitchenObject(this, player);
             }
@@ -129,7 +129,7 @@ public class StoveCounter : BaseCounter
     {
         if (fryingRecipe == null)
         {
-            Debug.LogWarning("�޷���ȡBuring��ʳ�ף��޷�����Buring��");
+            Debug.LogWarning("No frying Recipe");
             TurnToIdle();
             return;
         }

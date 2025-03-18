@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 2fc4026271e6ed14abc0ce2ea1336f26
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 24100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 311035
+  packageName: Witch's Cauldron scenario pack
+  packageVersion: 1.0
+  assetPath: Assets/DKWorld Entertainment/WitchsCauldronScenarioPack/Audio/SFX/SFXAudioMixer.mixer
+  uploadId: 738604
