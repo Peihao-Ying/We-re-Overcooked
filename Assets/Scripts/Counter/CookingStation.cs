@@ -11,6 +11,32 @@ public class CookingStation : KitchenObject
     
     [SerializeField] private Transform holdPoint;
     private KitchenObject kitchenObject;
+    [SerializeField] private float interactionRange = 4f;
+    private Transform player;
+
+    private void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+    }
+
+    private void Update()
+    {
+        if (player == null){
+            Debug.LogError("Player is NUll");
+            return;
+        }
+
+        float distance = Vector3.Distance(transform.position, player.position);
+        Debug.Log($"📏 Distance to Player: {distance} (Threshold: {interactionRange})");
+        if (distance <= interactionRange)
+        {
+            KeyPromptUI.Instance.ShowPrompt("E or F", "Add or Submit Food");
+        }
+        else
+        {
+            KeyPromptUI.Instance.HidePrompt();
+        }
+    }
 
     public void Interact(Player player)
     {
@@ -191,4 +217,6 @@ public class CookingStation : KitchenObject
                tomatoCount == 1 &&
                cabbageCount == 1;
     }
+
+
 }

@@ -15,10 +15,6 @@ public class SlimeOrder : MonoBehaviour
 
     public TextMeshProUGUI resultText;
 
-    private void Start()
-    {
-        resultText = GameObject.Find("YouPassed").GetComponent<TextMeshProUGUI>();
-    }
 
 
     public void InteractOperate(Player player)

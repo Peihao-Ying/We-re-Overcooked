@@ -149,4 +149,6 @@ public class CuttingCounter : BaseCounter
     {
         OnCut = null;
     }
+
+
 }
