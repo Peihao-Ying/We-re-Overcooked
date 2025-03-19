@@ -5,7 +5,7 @@ public class CookingStation : KitchenObject
 {
     private List<KitchenObject> ingredientList = new List<KitchenObject>();
 
-    [SerializeField] private KitchenObjectSO resultKitchenObjectSO;
+    [SerializeField] private KitchenObjectSO burgerObjectSO;
     
     [SerializeField] private Transform holdPoint;
     private KitchenObject kitchenObject;
@@ -26,6 +26,7 @@ public class CookingStation : KitchenObject
         }
         else
         {
+            print("interacting, player do not  have kitchen, current station object is " + this.kitchenObject.name);
             if (this.kitchenObject != null)
             {
                 player.AddKitchenObject(kitchenObject);
@@ -60,6 +61,7 @@ public class CookingStation : KitchenObject
     
     private void ClearAllIngredients()
     {
+        print("Clear ing all ingredients");
         foreach (KitchenObject o in ingredientList)
         {
             Destroy(o.gameObject);
@@ -69,27 +71,69 @@ public class CookingStation : KitchenObject
     
     public void CookAllIngredients()
     {
-        print("Current Ingredients: " + ingredientList.ToString());
         if (ingredientList.Count == 0)
         {
-            Debug.Log("还没有任何食材，无法合成！");
             return;
         }
-
-        Debug.Log("合成中... 已有 " + ingredientList.Count + " 个食材");
-
-        ClearAllIngredients();
-
-        if (resultKitchenObjectSO != null)
+        
+        if (CanMakeBurger())
         {
-            KitchenObject resultObject = GameObject.Instantiate(resultKitchenObjectSO.prefab, GetHoldPoint()).GetComponent<KitchenObject>();
-            this.kitchenObject =  resultObject;
-            kitchenObject.transform.localPosition = Vector3.zero;
-            Debug.Log("合成完成！生成: " + resultKitchenObjectSO.name);
+           if (Instantiate(burgerObjectSO.prefab, GetHoldPoint()).TryGetComponent<KitchenObject>(out KitchenObject burger))
+           {
+               this.kitchenObject = burger; 
+               burger.transform.localPosition = Vector3.zero;
+               burger.transform.localScale = Vector3.one * 0.4f;
+           }
+           else
+           {
+               print("Error instantiating burger");
+           }
         }
         else
         {
-            Debug.Log("未指定合成结果 resultKitchenObjectSO，无法生成成品！");
+            print("nothing can be made");
         }
+        
+        ClearAllIngredients();
+    }
+    
+    private bool CanMakeBurger()
+    {
+        // Count how many times each ingredient appears by name
+        int cheeseCount = 0;
+        int meatCount   = 0;
+        int breadCount  = 0;
+        int tomatoCount = 0;
+        int cabbageCount = 0;
+    
+        foreach (KitchenObject item in ingredientList)
+        {
+            print(item.name);
+            switch (item.name)
+            {
+                case "CheeseBlockSlices(Clone)":
+                    cheeseCount++;
+                    break;
+                case "MeetPattyCooked(Clone)":
+                    meatCount++;
+                    break;
+                case "Bread(Clone)":
+                    breadCount++;
+                    break;
+                case "TomatoSlices(Clone)":
+                    tomatoCount++;
+                    break;
+                case "CabbageSlices(Clone)":
+                    cabbageCount++;
+                    break;
+            }
+        }
+        
+        // We want exactly 1 of each
+        return cheeseCount == 1 &&
+               meatCount   == 1 &&
+               breadCount  == 1 &&
+               tomatoCount == 1 &&
+               cabbageCount == 1;
     }
 }
