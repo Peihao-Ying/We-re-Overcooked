@@ -3489,7 +3489,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   kitchenObjectSO: {fileID: 0}
-  resultKitchenObjectSO: {fileID: 11400000, guid: 97f6f14c1c8bc4945bf601ca50fb5940, type: 2}
+  burgerObjectSO: {fileID: 11400000, guid: 3d4ebdc5b23364d7b93be9c8c80f38c3, type: 2}
   holdPoint: {fileID: 1317362125}
 --- !u!65 &857508231
 BoxCollider:
