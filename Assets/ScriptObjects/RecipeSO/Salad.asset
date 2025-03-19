@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   recipleName: "\u6C99\u62C9"
   kitchenObjectSOList:
-  - {fileID: 11400000, guid: fa8d8f2e35a00244d905f70574827c58, type: 2}
-  - {fileID: 11400000, guid: ae28621e1844c594688997fbf1a137a7, type: 2}
+  - {fileID: 11400000, guid: 6c8533f1cff754ac887167601defd1ab, type: 2}
+  - {fileID: 11400000, guid: ec81f962228694221a346e016caf26c4, type: 2}

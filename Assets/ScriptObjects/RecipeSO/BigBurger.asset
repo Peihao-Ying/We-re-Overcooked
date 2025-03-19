@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   recipleName: "\u5DE8\u65E0\u9738\u6C49\u5821"
   kitchenObjectSOList:
-  - {fileID: 11400000, guid: dfff644901f25f3449678f8b6810ca27, type: 2}
-  - {fileID: 11400000, guid: 5b169d72d99be2243ab5fa3aa6831524, type: 2}
-  - {fileID: 11400000, guid: ae28621e1844c594688997fbf1a137a7, type: 2}
-  - {fileID: 11400000, guid: 33e22e72ed95e7540814cde32bb0b917, type: 2}
-  - {fileID: 11400000, guid: fa8d8f2e35a00244d905f70574827c58, type: 2}
+  - {fileID: 11400000, guid: 76b3d54d1b88f4d8fbb0db00c1f8b5a0, type: 2}
+  - {fileID: 11400000, guid: 6c8533f1cff754ac887167601defd1ab, type: 2}
+  - {fileID: 11400000, guid: b2d8e6cefe86f4dc480b6cfb3094881a, type: 2}
+  - {fileID: 11400000, guid: 5776c3cd2061145469b3c2f877cda46f, type: 2}
+  - {fileID: 11400000, guid: ec81f962228694221a346e016caf26c4, type: 2}
