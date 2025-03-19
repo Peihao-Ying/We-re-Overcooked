@@ -10,11 +10,13 @@ public class Player : KitchenObjectHolder
     [SerializeField] private float rotateSpeed = 10;
     [SerializeField] private GameInput gameInput;
     [SerializeField] private LayerMask counterLayerMask;
+    [SerializeField] private LayerMask cookingStationLayerMask;
     [SerializeField] private Rigidbody rb;
+    [SerializeField] private CookingStation cookingStation;
 
     private bool isWalking = false;
     private BaseCounter selectedCounter;
-
+    private bool stationSelected;
     private void Awake()
     {
         Instance = this;
@@ -45,12 +47,21 @@ public class Player : KitchenObjectHolder
     private void GameInput_OnInteractAction(object sender, System.EventArgs e)
     {
         selectedCounter?.Interact(this);
+        if (stationSelected)
+        {
+            cookingStation.Interact(this);
+        }
     }
 
     private void GameInput_OnOperateAction(object sender, System.EventArgs e)
     {
         Debug.Log("Player detected Operate action!");
         selectedCounter?.InteractOperate(this);
+
+        if (stationSelected)
+        {
+            cookingStation.CookAllIngredients();
+        }
     }
 
     private void HandleMovement()
@@ -81,9 +92,21 @@ public class Player : KitchenObjectHolder
                 SetSelectedCounter(null);
             }
         }
+        else if (Physics.Raycast(transform.position, transform.forward, out RaycastHit hitinfo2, 2f, cookingStationLayerMask))
+        {
+            if (hitinfo2.transform.TryGetComponent<CookingStation>(out CookingStation station))
+            {
+                stationSelected = true;
+            }
+            else
+            {
+                stationSelected = false;
+            }
+        }
         else
         {
             SetSelectedCounter(null);
+            stationSelected = false;
         }
     }
 
@@ -96,6 +119,5 @@ public class Player : KitchenObjectHolder
             this.selectedCounter = counter;
         }
     }
-
 
 }

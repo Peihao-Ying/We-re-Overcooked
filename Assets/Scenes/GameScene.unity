@@ -696,11 +696,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7957806167225172823, guid: 6aa2d3c9e99bef54ab0984ca866bf171, type: 3}
   m_PrefabInstance: {fileID: 170793398}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &178198986 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4589716710238282922, guid: 0004cb1e11ad014419b943c7da960724, type: 3}
-  m_PrefabInstance: {fileID: 470356580}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &178198987 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4589716710238282923, guid: 0004cb1e11ad014419b943c7da960724, type: 3}
@@ -1537,6 +1532,10 @@ PrefabInstance:
       value: SelectedCounter
       objectReference: {fileID: 0}
     - target: {fileID: 4589716710238282922, guid: 0004cb1e11ad014419b943c7da960724, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4589716710238282922, guid: 0004cb1e11ad014419b943c7da960724, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -1595,6 +1594,10 @@ PrefabInstance:
     - target: {fileID: 4589716710238282923, guid: 0004cb1e11ad014419b943c7da960724, type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8489276541531669327, guid: 0004cb1e11ad014419b943c7da960724, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2429,7 +2432,11 @@ MonoBehaviour:
   counterLayerMask:
     serializedVersion: 2
     m_Bits: 64
+  cookingStationLayerMask:
+    serializedVersion: 2
+    m_Bits: 128
   rb: {fileID: 0}
+  cookingStation: {fileID: 857508230}
 --- !u!4 &616944933
 Transform:
   m_ObjectHideFlags: 0
@@ -2813,6 +2820,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1064033950738282640, guid: 3ebeab0c59a9122438f4a9553a3f0745, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 4741460979712861141, guid: 3ebeab0c59a9122438f4a9553a3f0745, type: 3}
       propertyPath: m_LocalScale.x
       value: 3
@@ -2865,9 +2876,45 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5064215173857929854, guid: 3ebeab0c59a9122438f4a9553a3f0745, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5064215174784610569, guid: 3ebeab0c59a9122438f4a9553a3f0745, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5064215175275006900, guid: 3ebeab0c59a9122438f4a9553a3f0745, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5064215175441568245, guid: 3ebeab0c59a9122438f4a9553a3f0745, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5064215175732810195, guid: 3ebeab0c59a9122438f4a9553a3f0745, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 5370222663767259503, guid: 3ebeab0c59a9122438f4a9553a3f0745, type: 3}
       propertyPath: m_Name
       value: Cauldron
+      objectReference: {fileID: 0}
+    - target: {fileID: 5370222663767259503, guid: 3ebeab0c59a9122438f4a9553a3f0745, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5491204388982385338, guid: 3ebeab0c59a9122438f4a9553a3f0745, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5491204388982385338, guid: 3ebeab0c59a9122438f4a9553a3f0745, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6783977196172608713, guid: 3ebeab0c59a9122438f4a9553a3f0745, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3441,12 +3488,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0967e4b8aa8884be1ba7bf1d39eb7017, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  kitchenObjectSO: {fileID: 0}
+  resultKitchenObjectSO: {fileID: 11400000, guid: 97f6f14c1c8bc4945bf601ca50fb5940, type: 2}
   holdPoint: {fileID: 1317362125}
-  selectedCounter: {fileID: 178198986}
-  recipeListSO: {fileID: 11400000, guid: 3324055ec93134c23a7fb45c35c49761, type: 2}
-  ingredientPoints: []
-  maxIngredientCount: 4
-  cookingTime: 5
 --- !u!65 &857508231
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5426,7 +5470,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1317362125}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: HoldPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5442,8 +5486,8 @@ Transform:
   m_GameObject: {fileID: 1317362124}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -1, z: -0, w: 0.00000058114523}
-  m_LocalPosition: {x: 0.053, y: 0.7, z: 0.11}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0.053, y: 0.9, z: 0.11}
+  m_LocalScale: {x: 1, y: 0.66279, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 857508232}

@@ -8,7 +8,6 @@ public class ClearCounter : BaseCounter
 
     public override void Interact(Player player)
     {
-        print(this.gameObject + " is interacting ...");
         if (player.IsHaveKitchenObject())
         {
 
