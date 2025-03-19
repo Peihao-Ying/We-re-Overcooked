@@ -41,6 +41,11 @@ public class CookingStation : KitchenObject
         kitchenObject.transform.SetParent(holdPoint);
         ingredientList.Add(kitchenObject);
         kitchenObject.transform.localPosition = Vector3.zero;
+
+        foreach (KitchenObject o in ingredientList)
+        {
+            print("Current ingredients: "+o.name);
+        }
     }
     
     public Transform GetHoldPoint()
