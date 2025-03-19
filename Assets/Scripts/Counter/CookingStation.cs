@@ -6,6 +6,8 @@ public class CookingStation : KitchenObject
     private List<KitchenObject> ingredientList = new List<KitchenObject>();
 
     [SerializeField] private KitchenObjectSO burgerObjectSO;
+    [SerializeField] private KitchenObjectSO saladObjectSO;
+
     
     [SerializeField] private Transform holdPoint;
     private KitchenObject kitchenObject;
@@ -89,6 +91,19 @@ public class CookingStation : KitchenObject
                print("Error instantiating burger");
            }
         }
+        else if (CanMakeSalad())
+        {
+            if (Instantiate(saladObjectSO.prefab, GetHoldPoint()).TryGetComponent<KitchenObject>(out KitchenObject salad))
+            {
+                this.kitchenObject = salad; 
+                salad.transform.localPosition = Vector3.zero;
+                salad.transform.localScale = Vector3.one * 0.5f;
+            }
+            else
+            {
+                print("Error instantiating salad");
+            }
+        }
         else
         {
             print("nothing can be made");
@@ -133,6 +148,46 @@ public class CookingStation : KitchenObject
         return cheeseCount == 1 &&
                meatCount   == 1 &&
                breadCount  == 1 &&
+               tomatoCount == 1 &&
+               cabbageCount == 1;
+    }
+    
+    private bool CanMakeSalad()
+    {
+        // Count how many times each ingredient appears by name
+        int cheeseCount = 0;
+        int meatCount   = 0;
+        int breadCount  = 0;
+        int tomatoCount = 0;
+        int cabbageCount = 0;
+    
+        foreach (KitchenObject item in ingredientList)
+        {
+            print(item.name);
+            switch (item.name)
+            {
+                case "CheeseBlockSlices(Clone)":
+                    cheeseCount++;
+                    break;
+                case "MeetPattyCooked(Clone)":
+                    meatCount++;
+                    break;
+                case "Bread(Clone)":
+                    breadCount++;
+                    break;
+                case "TomatoSlices(Clone)":
+                    tomatoCount++;
+                    break;
+                case "CabbageSlices(Clone)":
+                    cabbageCount++;
+                    break;
+            }
+        }
+        
+        // We want exactly 1 of each
+        return cheeseCount == 0 &&
+               meatCount   == 0 &&
+               breadCount  == 0 &&
                tomatoCount == 1 &&
                cabbageCount == 1;
     }
