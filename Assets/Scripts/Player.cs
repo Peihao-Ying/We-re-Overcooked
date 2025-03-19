@@ -17,6 +17,7 @@ public class Player : KitchenObjectHolder
     private bool isWalking = false;
     private BaseCounter selectedCounter;
     private bool stationSelected;
+
     private void Awake()
     {
         Instance = this;
@@ -61,6 +62,28 @@ public class Player : KitchenObjectHolder
         if (stationSelected)
         {
             cookingStation.CookAllIngredients();
+        }
+        TryGiveFoodToSlime();
+    }
+
+    private void GameInput_OnGiveFoodAction(object sender, System.EventArgs e)
+    {
+        TryGiveFoodToSlime();
+    }
+
+    private void TryGiveFoodToSlime()
+    {
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position, 2f);
+
+        foreach (Collider collider in hitColliders)
+        {
+            SlimeOrder slime = collider.GetComponent<SlimeOrder>();
+            if (slime != null)
+            {
+                Debug.Log("Slime detected! Trying to submit food...");
+                slime.InteractOperate(this);
+                return;
+            }
         }
     }
 
@@ -119,5 +142,4 @@ public class Player : KitchenObjectHolder
             this.selectedCounter = counter;
         }
     }
-
 }

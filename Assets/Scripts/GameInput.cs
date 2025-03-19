@@ -42,11 +42,13 @@ public class GameInput : MonoBehaviour
         gameControl.Player.Pause.performed += Pause_Performed;
     }
 
+
+
     //private void Update()
     //{
     //    if (Input.GetMouseButtonDown(0))
     //    {
-    //        print("¿ªÊ¼°ó¶¨");
+    //        print("ï¿½ï¿½Ê¼ï¿½ï¿½");
     //        gameControl.Player.Disable();
     //        gameControl.Player.Move.PerformInteractiveRebinding(1).OnComplete(callback =>
     //        {
@@ -54,7 +56,7 @@ public class GameInput : MonoBehaviour
     //            print(callback.action.bindings[1].overridePath);
 
     //            callback.Dispose();
-    //            print("°ó¶¨Íê³É");
+    //            print("ï¿½ï¿½ï¿½ï¿½ï¿½");
     //            gameControl.Player.Enable();
     //        }).Start();
     //    }
